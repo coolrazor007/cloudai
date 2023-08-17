@@ -6,6 +6,9 @@ load_dotenv()
 
 from langchain import HuggingFacePipeline, OpenAI, ConversationChain, LLMChain, PromptTemplate
 
+HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
+#os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGINGFACE_API_KEY
+
 openai_api_key = os.getenv("OPENAI_API_KEY")
 model = "meta-llama/Llama-2-7b-chat-hf"
 temperature = float(os.getenv("TEMPERATURE"))
@@ -25,6 +28,8 @@ llm = HuggingFacePipeline.from_model_id(
     model_id="meta-llama/Llama-2-7b-chat-hf",
     task="text-generation",
     model_kwargs={"temperature": 0, "max_length": 64},
+    token=HUGGINGFACE_API_KEY,
+    use_auth_token=True,
 )
 # initialize conversational memory
 conversational_memory = ConversationBufferWindowMemory(

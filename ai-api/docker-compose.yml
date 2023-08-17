@@ -10,6 +10,9 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    volumes:
+      - /home/razor/.cache/huggingface/hub/:/root/.cache/huggingface/hub/
+      - /home/razor/.cache/huggingface/token:/root/.cache/huggingface/token:ro
     deploy:
       resources:
         reservations:
