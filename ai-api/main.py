@@ -7,7 +7,7 @@ load_dotenv()
 import openai
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
-model = os.getenv("MODEL")
+model = "meta-llama/Llama-2-7b-chat-hf"
 temperature = float(os.getenv("TEMPERATURE"))
 
 import custom_tools
