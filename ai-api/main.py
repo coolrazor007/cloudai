@@ -4,15 +4,13 @@ import time
 from dotenv import load_dotenv
 load_dotenv()
 
-import openai
+from langchain import HuggingFacePipeline, OpenAI, ConversationChain, LLMChain, PromptTemplate
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 model = "meta-llama/Llama-2-7b-chat-hf"
 temperature = float(os.getenv("TEMPERATURE"))
 
 import custom_tools
-
-from langchain import OpenAI, ConversationChain, LLMChain, PromptTemplate
 from langchain.agents import load_tools
 from langchain.agents import ZeroShotAgent, Tool, AgentExecutor
 from langchain.agents import initialize_agent
@@ -23,10 +21,10 @@ from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 
 from langchain.schema import output_parser
 
-llm = ChatOpenAI(
-    openai_api_key=openai_api_key,
-    temperature=temperature,
-    model_name=model
+llm = HuggingFacePipeline.from_model_id(
+    model_id="meta-llama/Llama-2-7b-chat-hf",
+    task="text-generation",
+    model_kwargs={"temperature": 0, "max_length": 64},
 )
 # initialize conversational memory
 conversational_memory = ConversationBufferWindowMemory(
@@ -68,7 +66,7 @@ memory = ConversationBufferMemory(
     memory_key="chat_history", chat_memory=message_history
 )
 
-llm_chain = LLMChain(llm=OpenAI(temperature=temperature), prompt=prompt)
+llm_chain = LLMChain(prompt=prompt, llm=llm)
 agent = ZeroShotAgent(llm_chain=llm_chain, tools=tools, verbose=True)
 agent_chain = AgentExecutor.from_agent_and_tools(
     agent=agent, tools=tools, verbose=True, memory=memory
