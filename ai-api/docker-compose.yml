@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  ai-api:
+    depends_on:
+      - redis
+    container_name: "ai-api"
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  redis:
+    image: "redis:latest"
+    container_name: redis
+    restart: always
+    ports:
+      - 6379:6379
+    command: redis-server --protected-mode no
