@@ -26,3 +26,7 @@ torchvision
 
 torchaudio
 #https://download.pytorch.org/whl/cu118/torchaudio-2.0.2%2Bcu118-cp311-cp311-linux_x86_64.whl
+
+huggingface_hub
+accelerate
+xformers

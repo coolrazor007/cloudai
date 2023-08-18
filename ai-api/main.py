@@ -24,12 +24,14 @@ from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 
 from langchain.schema import output_parser
 
+import torch
+
 llm = HuggingFacePipeline.from_model_id(
     model_id="meta-llama/Llama-2-7b-chat-hf",
     task="text-generation",
-    model_kwargs={"temperature": 0, "max_length": 64},
-    token=HUGGINGFACE_API_KEY,
-    use_auth_token=True,
+    model_kwargs={"temperature": 0, "max_length": 2048, "device_map": "cpu", "torch_dtype": torch.float32,},
+    #token=HUGGINGFACE_API_KEY,
+    #use_auth_token=True,
 )
 # initialize conversational memory
 conversational_memory = ConversationBufferWindowMemory(
@@ -99,7 +101,7 @@ origins = [
     "https://cloud.alethotech.com",
     "http://localhost:8080",  # Be sure to include the port your frontend is running on
     # # you can add more origins here if needed
-    # "*",
+    "*",
 ]
 
 app.add_middleware(
