@@ -1,18 +1,24 @@
-openai
+
 python-dotenv
-elevenlabs
-langchain
-llama-index
-argparse
-duckduckgo-search
-
 huggingface_hub
+huggingface_hub[cli,torch]
+huggingface_hub[tensorflow]
+torch
+torchvision
+torchaudio
+einops
+
 tiktoken
-wikipedia
-transformers
+tensorrt
+gradio
+gekko
+ninja
+# ipython
+# optimum
+# chromadb
+# pypdf
+# IPython
 
-
-redis
-uvicorn
-fastapi
-pydantic
+# pandas
+# pandas_datareader
+# matplotlib
