@@ -15,6 +15,24 @@ docker run -it -v /home/$(whoami)/.cache/huggingface/hub/:/root/.cache/huggingfa
 
 ```
 
+## AutoGen code for local
+```
+config_list = [
+        {
+            "model": "6ae1e4ae2cfbaf107c705ed722ec243b4f88014d",
+            "api_base": "http://host.docker.internal:8000/v1",
+            "api_type": "open_ai",
+            "api_key": "NULL", # just a placeholder
+        }
+    ]
+
+gpt_config = {
+    "seed": 42,  # change the seed for different trials
+    "temperature": 0,
+    "config_list": config_list,
+    "request_timeout": 600,
+}
+```
 ## Models
 
 Use Huggingface-cli/Huggingface-hub to download the models locally first (you do not want the models INSIDE the container).  This way you mount them.
