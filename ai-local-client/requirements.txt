@@ -1,0 +1,36 @@
+
+python-dotenv
+tiktoken
+
+
+# ninja
+# ipython
+optimum
+chromadb
+pypdf
+IPython
+argparse
+duckduckgo-search
+
+pandas
+pandas_datareader
+matplotlib
+elevenlabs
+SpeechRecognition
+pyautogen
+
+coverage
+datasets
+ipykernel
+nbconvert
+nbformat
+pre-commit
+pydantic==1.10.9
+pytest-asyncio
+pytest
+sympy
+wolframalpha
+flaml[blendsearch]
+sentence_transformers
+
+asyncio

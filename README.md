@@ -3,11 +3,14 @@
 ## Quickstart
 
 ```
-pip install huggingface_hub[cli]
+pip install -U huggingface_hub[cli]
+#using an environment variable for the huggingface token
+huggingface-cli login --token $HUGGINGFACE_TOKEN
 huggingface-cli download TheBloke/Mistral-7B-Instruct-v0.1-GPTQ
 
+cd ai-api
 docker build . --no-cache -t ai-api
-docker run -it -v /home/$(whoami)/.cache/huggingface/hub/:/root/.cache/huggingface/hub/ -v /home/$(whoami)/.cache/huggingface/token:/root/.cache/huggingface/token:ro -p 8000:8000 -p 7860:7860 --gpus all --name ai-api ai-api
+docker run -it -v /home/$(whoami)/.cache/huggingface/hub/:/root/.cache/huggingface/hub/ -p 8000:8000 -p 7860:7860 --gpus all --name ai-api ai-api
 
 ```
 
