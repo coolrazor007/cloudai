@@ -1,5 +1,16 @@
 # cloudai
 
+## Quickstart
+
+```
+pip install huggingface_hub[cli]
+huggingface-cli download TheBloke/Mistral-7B-Instruct-v0.1-GPTQ
+
+docker build . --no-cache -t ai-api
+docker run -it -v /home/$(whoami)/.cache/huggingface/hub/:/root/.cache/huggingface/hub/ -v /home/$(whoami)/.cache/huggingface/token:/root/.cache/huggingface/token:ro -p 8000:8000 -p 7860:7860 --gpus all --name ai-api ai-api
+
+```
+
 ## Models
 
 Use Huggingface-cli/Huggingface-hub to download the models locally first (you do not want the models INSIDE the container).  This way you mount them.
