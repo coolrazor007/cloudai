@@ -3,6 +3,7 @@
 ## Quickstart
 
 ```
+pip install -U huggingface_hub
 pip install -U huggingface_hub[cli]
 #using an environment variable for the huggingface token
 huggingface-cli login --token $HUGGINGFACE_TOKEN
