@@ -5,21 +5,24 @@ services:
     depends_on:
       - redis
     container_name: "ai-api"
-    build: .
+    build:
+      context: .
+      args:
+        - HUGGINGFACE_API_KEY=${HUGGINGFACE_API_KEY}
     ports:
       - "8000:8000"
     env_file:
       - .env
     volumes:
       - /home/razor/.cache/huggingface/hub/:/root/.cache/huggingface/hub/
-      - /home/razor/.cache/huggingface/token:/root/.cache/huggingface/token:ro
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+      #- /home/razor/.cache/huggingface/token:/root/.cache/huggingface/token:ro
+    #deploy:
+    #  resources:
+    #    reservations:
+    #      devices:
+    #        - driver: nvidia
+    #          count: all
+    #          capabilities: [gpu]
 
   redis:
     image: "redis:latest"

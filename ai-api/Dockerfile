@@ -2,9 +2,11 @@
 #FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 FROM nvidia/cuda:11.8.0-devel-ubuntu22.04
 
+
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV HUGGINGFACE_API_KEY $HUGGINGFACE_API_KEY
 
 # Set work directory
 WORKDIR /app
@@ -26,6 +28,8 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copy the current directory contents into the container at /app
 COPY . /app/
+
+#RUN huggingface-cli login --token $HUGGINGFACE_API_KEY
 
 # Run the command to start Uvicorn
 CMD ["./fastchat.sh]
