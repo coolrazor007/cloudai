@@ -1,28 +1,24 @@
-openai
+
 python-dotenv
-elevenlabs
-langchain
-llama-index
-argparse
-duckduckgo-search
-
 huggingface_hub
-tiktoken
-wikipedia
-transformers
-
-
-redis
-uvicorn
-fastapi
-pydantic
-
+huggingface_hub[cli,torch]
+huggingface_hub[tensorflow]
 torch
-#https://download.pytorch.org/whl/cpu/torch-1.13.1%2Bcpu-cp310-cp310-linux_x86_64.whl
-#https://download.pytorch.org/whl/cpu-cxx11-abi/torch-2.0.1%2Bcpu.cxx11.abi-cp311-cp311-linux_x86_64.whl
-
 torchvision
-#https://download.pytorch.org/whl/cu118/torchvision-0.15.2%2Bcu118-cp311-cp311-linux_x86_64.whl
-
 torchaudio
-#https://download.pytorch.org/whl/cu118/torchaudio-2.0.2%2Bcu118-cp311-cp311-linux_x86_64.whl
+einops
+
+tiktoken
+tensorrt
+gradio
+gekko
+ninja
+# ipython
+# optimum
+# chromadb
+# pypdf
+# IPython
+
+# pandas
+# pandas_datareader
+# matplotlib
