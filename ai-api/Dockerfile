@@ -21,7 +21,7 @@ RUN pip3 install --upgrade pip
 #RUN pip3 install git+https://github.com/huggingface/transformers.git@72958fcd3c98a7afdc61f953aa58c544ebda2f79
 RUN pip3 install git+https://github.com/huggingface/transformers.git
 #Needed for AutoGPTQ to run better
-RUN pip3 install exllama gekko
+RUN pip3 install exllama gekko optimum
 RUN pip install auto-gptq --extra-index-url https://huggingface.github.io/autogptq-index/whl/cu118/
 RUN pip3 install git+https://github.com/lm-sys/FastChat.git
 RUN pip3 install --no-cache-dir -r requirements.txt
@@ -32,4 +32,4 @@ COPY . /app/
 #RUN huggingface-cli login --token $HUGGINGFACE_API_KEY
 
 # Run the command to start Uvicorn
-CMD ["./fastchat.sh]
+CMD ["./fastchat.sh"]
