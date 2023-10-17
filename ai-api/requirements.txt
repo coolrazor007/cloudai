@@ -1,8 +1,14 @@
 
+
+git+https://github.com/huggingface/transformers.git
+gekko
+optimum
+exllama
+auto-gptq --extra-index-url https://huggingface.github.io/autogptq-index/whl/cu118/
+
 python-dotenv
 huggingface_hub
 huggingface_hub[cli,torch]
-huggingface_hub[tensorflow]
 torch
 torchvision
 torchaudio
@@ -22,3 +28,5 @@ ninja
 # pandas
 # pandas_datareader
 # matplotlib
+accelerate
+git+https://github.com/lm-sys/FastChat.git

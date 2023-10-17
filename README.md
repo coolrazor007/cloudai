@@ -62,5 +62,5 @@ docker run -it --env-file .env -v $(pwd):/app2/ -v /home/$(whoami)/.cache/huggin
 ```
 docker build . --no-cache -t cuda2
 
-docker run -it --env-file .env -v $(pwd):/app2/ --gpus all --name cuda2 cuda /bin/bash
+docker run -it --env-file .env -v $(pwd):/app2/ --gpus all --name cuda2 cuda2 /bin/bash
 ```

@@ -2,6 +2,11 @@
 python-dotenv
 tiktoken
 
+#PyAudio
+#openai-whisper
+git+https://github.com/openai/whisper.git
+pyaudio
+python-mpv
 
 # ninja
 # ipython

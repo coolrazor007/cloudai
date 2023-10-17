@@ -13,7 +13,8 @@ RUN cd /home/autogen-dev && git clone https://github.com/microsoft/autogen.git
 WORKDIR /home/autogen-dev/autogen
 
 # Install autogen (Note: extra components can be installed if needed)
-RUN sudo pip install -e .[test]
+RUN sudo pip3 install -e .
+RUN sudo pip3 install -e .[test]
 
 # # Install precommit hooks
 # RUN pre-commit install
@@ -28,7 +29,7 @@ RUN sudo pip install -e .[test]
 COPY . /app/
 WORKDIR /app
 
-RUN sudo pip install -r requirements.txt
+RUN sudo pip3 install -r requirements.txt
 
 # override default image starting point
 CMD /bin/bash
